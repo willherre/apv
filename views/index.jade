@@ -1,0 +1,44 @@
+extends layout
+block content
+ include header
+  block contenido
+  article#banner
+   div.flexslider
+    ul.slides
+     each slide in slides
+      -if (slide.estado =="A")
+        li
+         img(src='/images/content/slide/#{slide.nomslide}')
+         p.flex-caption 
+          |#{slide.descrip}
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+  script(src='/javascripts/jquery.flexslider.js') 	 
+  script
+   $(window).load(function(){
+      $(".flexslider").flexslider();
+    });
+  article#info
+   div#acer
+    div#titi
+     img#iacer(src='/images/acer.png')
+     h4 Acerca
+    p Aplicación web que facilita  la solicitud de equipos audiovisuales desde cualquier sitio y momento, evitando el papeleo cuando se realiza una reserva.
+   div#acer
+    div#titi
+     img#iacer(src='/images/tar.png')
+     h4 Objetivo
+    p Evitar el tedioso trabajo de llenar formatos por cada reserva realizada, imagínate hacerlas con tan solo hacer un click  y entérate de las ultimas noticias.
+   div#acer
+    div#titi
+     img#iacer(src='/images/dis.png')
+     h4 Diseño
+    p Un diseño no solo agradable a la vista  sino también con un valor agregado que te permite realizar tus reservas desde cualquier dispositivo móvil o de escritorio.
+  article#news
+   fieldset
+    legend  
+     h4 Últimas Noticias
+     img(src='/images/news.png')
+    div#noticias
+     include notiindex 
+              
+ include footer

@@ -1,0 +1,58 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+block content
+ include headera
+ section#contenedor
+  section#contenido
+   article#forr
+    article#formulario
+     h2 Subir Noticia 
+     br
+     div#formu-conte
+      form#form-logo(method="post" ,action="/noti/add", enctype='multipart/form-data')
+       label(for="texto") Titulo Noticia&nbsp;
+       if(mensaje)
+        input#des-log(name="notid",type='text',autofocus,required,value="#{ti}")
+       else
+        input#des-log(name="notid",type='text',autofocus,required) 
+       label(for="texto") Imagen Noticia&nbsp;  
+       input(type="file", name='photo',required)
+       label(for="texto") Contenido Noticia&nbsp;
+       if(mensaje) 
+        textarea(name="notia",required)#area1 #{cont}
+       else
+        textarea(name="notia",required)#area1
+       input(type='submit' ,href='javascript:;', value='Subir')
+    if(mensaje)   
+     div#mensaje
+      img(src="/images/error.png", alt="error") 
+      p#mpa #{mensaje}
+      img#exit(src="/images/exit.png", alt="salir") 
+   article#logop
+    fieldset
+     legend &nbsp;Noticias&nbsp;
+     div#resultado
+      include notili   	
+block script
+ script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+ script(src="javascripts/jquery.cokidoo-textarea.js")
+ script
+  function activar(id){
+   location.href="/noti/activar/" + id;
+   //alert(id);  
+  };
+ script
+  $().ready(function(){
+    $("#area1").autoResize();
+  });
+ if(mensaje)
+  script
+   $(window).load(function(){
+    $("#mensaje").fadeIn(1500);
+    //$("#mensaje").fadeOut(1500);
+   });
+    $("#exit").click(function(){
+     
+    $("#mensaje").fadeOut(1000);
+   });   

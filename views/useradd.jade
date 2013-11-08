@@ -1,0 +1,74 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+block content
+ include headera
+ article#registro
+  fieldset#formnu
+   h2 Nuevo Usuario 
+   form(method="post",action="/usuario/add")
+    div
+     label(for="identifica") Identificacion:
+     input#identifica(type="text",name="identifica",required)
+    div
+     label(for="codigo") Codigo:
+     input#codigo(type="text",name="codigo",required)	
+    div
+     label(for="pnombre") Primer Nombre:
+     input#pnombre(type="text",name="pnombre")  
+    div
+     label(for="snombre") Segundo Nombre:
+     input#snombre(type="text",name="snombre",required)
+    div
+     label(for="papellido") Primer Apellido:
+     input#papellido(type="text",name="papellido",required)
+    div
+     label(for="sapellido") Segundo Apellido:
+     input#sapellido(type="text",name="sapellido",required)
+    div 
+     label(for="genero") Genero:
+     select#genero(name="genero")
+      option M
+      option F 
+     div 
+     label(for="dia") Fecha de Nacimiento:
+     select#dia(name="dia")
+      option Día
+      -for(var x=1;x<32;x++)
+        option #{x}
+     select
+      option Mes
+      -for(var x=1;x<13;x++)
+        option #{x}
+     select
+      option Año
+       -for(var x=1933;x<2014;x++)
+        option #{x}   
+    div
+     label(for="correo") Correo:
+     input#correo(type="email",name="correo",required)
+
+    div
+     label(for="direccion") Direccion:
+     input#direccion(type="text",name="direccion",required)
+    div
+     label(for="telefono") Telefono:
+     input#telefono(type="text",name="telefono",required)
+    div
+     label(for="imagen") Foto de Perfil:
+     input#imagen(type="file",name="photo")
+    div
+     label(for="rol") Rol:
+     input#rol(type="text",name="rol",required)
+    div
+     label(for="password") Contraseña:
+     input#password(type="password",name="password",required)
+    div
+     label(for="password1") Repita Su Contraseña:
+     input#password1(type="password",name="password1",required)  
+    input(type="submit",value="Guardar")
+block script
+ script
+  $(window).load(function(){
+   $("#formnu").fadeIn(2000);
+  });

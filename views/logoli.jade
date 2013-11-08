@@ -1,0 +1,16 @@
+block logo
+        each logo in logos
+          div#logocon
+             img(src='/images/content/logo/#{logo.nomlogo}')  
+             p#logonom #{logo.nomlogo}
+             p #{logo.descrip}
+             -var estado =  logo.estado
+             -var id= '#{logo._id}'
+             - if (estado=="A")
+                input(type='radio', checked, name="group1", onClick="activar('#{logo.id}');")
+             - else 
+                input(type='radio',name="group1", onClick="activar('#{logo.id}');")
+             form(method="post",action="/logo/" + logo.id)
+              input(name='_method',value='DELETE',type='hidden')
+              button.btn.pull-right.delete-response(type='submit')
+               img(src='/images/del.png')

@@ -1,0 +1,17 @@
+block slide
+  
+        each slide in slides
+          div#logocon
+             img(src='/images/content/slide/#{slide.nomslide}')  
+             p#slidenom #{slide.nomslide}
+             p #{slide.descrip}
+             -var estado =  slide.estado
+             -var id= '#{slide._id}'
+             - if (estado=="A")
+                input(type='checkbox', checked , onClick="activar('#{slide.id}');")
+             - else 
+                input(type='checkbox', onClick="activar('#{slide.id}');")
+             form(method="post",action="/banner/" + slide.id)
+              input(name='_method',value='DELETE',type='hidden')
+              button.btn.pull-right.delete-response(type='submit')
+               img(src='/images/del.png')

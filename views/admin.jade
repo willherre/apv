@@ -1,0 +1,46 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+block content
+ include headera
+ section#contenido
+  div.content
+   h2 Página de Inicio 
+   p#parrafoe Administra tu web de una forma mas comoda y novedosa
+  div.ao-item
+   div.ao-details
+    h2 APV - Inicio
+    p Este es el editor gráfico de tu web observa la vista previa de ella y selecciona la sección que deseas editar.
+    p 
+     a(href="http://themeforest.net/item/blenton-premium-wordpress-template/1995225") Video Guia &rarr;
+   div.ao-preview
+    input#ao-toggle.ao-toggle(type="checkbox",name="ao-toggle")
+    img(src="/images/inicio.png",alt="image01")
+    div.ao-annotations
+     span
+      a(href="/logo",target="_blank")
+       img(src="/images/edit.png") 
+      p Logo
+     span
+      a(href="/banner",target="_blank")
+       img(src="/images/edit.png") 
+      p Banner
+     span
+      p Noticias
+      a(href="/noti",target="_blank")
+       img(src="/images/edit.png")    	
+block script
+ script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+ script
+  $(function() {
+      var btn_movil = $('#nav-mobile'),
+          menu = $('#menu').find('ul');
+      // Al dar click agregar/quitar clases que permiten el despliegue del menú
+      btn_movil.on('click', function (e) {
+          e.preventDefault();
+          var el = $(this);
+          el.toggleClass('nav-active');
+          menu.toggleClass('open-menu');
+      })
+  }); 
+    

@@ -1,0 +1,1 @@
+-Recordar el substr a la hora de subir la noticia ya que jade no permitehacer este procedimiento 

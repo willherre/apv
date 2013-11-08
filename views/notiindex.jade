@@ -1,0 +1,23 @@
+block content
+    each noti in notis
+          -if (noti.estado =="A")
+            div#new
+             -var contenido = noti.contenido
+             img(src='/images/content/new/#{noti.imagen}')
+             div#new-cont
+              h4  #{noti.titulo}
+              p #{noti.conteni}&nbsp;...
+         div#contador
+          -var ant= pagact-1;
+          -var sig= pagact + 1;
+          -if(ant>0)    
+           img#arrowiz(src="/images/arrowiz.png", alt="Anterior",onClick="cargarnoticias(#{ant});")
+          -for(var x=1;x<=nuNo;x++)
+            -if(x==pagact)
+              p#activo(onClick="cargarnoticias(#{x});") #{x}
+            -else
+              p(onClick="cargarnoticias(#{x});") #{x}
+          -if(sig<=nuNo)
+           img#arrowder(src="/images/arrowder.png", alt="Siguiente",onClick="cargarnoticias(#{sig});")
+
+           

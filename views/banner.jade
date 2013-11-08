@@ -1,0 +1,52 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+block content
+ include headera
+ section#contenedor
+  section#contenido
+   article#forr
+    article#formulario
+     h2 Subir Slide 
+     br
+     div#formu-conte
+      form#form-logo(method="post" ,action="/banner/add",method='post', enctype='multipart/form-data')
+       label(for="texto") Tipo&nbsp;
+       select(name="slidet",required)
+        option Imagen
+        option(onClick="ejemplo('ass');") Video 
+       label(for="texto") Descripción&nbsp;
+       input#des-log(name="slided",type='text',autofocus,required)
+       input(type="file", name='photo',required)
+     
+       input(type='submit' ,href='javascript:;', value='Subir')
+    if(mensaje)   
+     div#mensaje
+      img(src="/images/error.png", alt="error") 
+      p#mpa #{mensaje}
+      img#exit(src="/images/exit.png", alt="salir")
+   article#logop
+    fieldset
+     legend &nbsp;Imagenes&nbsp;
+     div#resultado
+      include bannerli   	
+block script
+ script
+  function activar(id){
+   location.href="/banner/activar/" + id;
+   //alert(id);  
+  };
+  function ejemplo(id){
+   //location.href="/banner/activar/" + id;
+   alert(id);  
+  };
+ if(mensaje)
+  script
+   $(window).load(function(){
+    $("#mensaje").fadeIn(1500);
+    //$("#mensaje").fadeOut(1500);
+   });
+    $("#exit").click(function(){
+     
+    $("#mensaje").fadeOut(1000);
+   });   

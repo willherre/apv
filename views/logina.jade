@@ -1,0 +1,62 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+ link(rel='stylesheet', href='/stylesheets/logina.css')
+block content
+ h2 Bienvenido de Nuevo 
+ form.form-2(method="post",action="/ingresar")
+  h1
+   span.log-in Ingresar al administrador de contenidos&nbsp; 
+  p.float
+   label(for='login')
+    i.icon-user
+    |Usuario
+    input(type='text', name='identi',title="Su Usuario",required,autofocus) 
+  p.float
+   label(for='password')
+    i.icon-lock
+    |Contraseña
+    input.showpassword(type='password', name='password', title="Su Contraseña",required) 
+  p.clearfix
+   a.log-twitter(href="/forgota") Recuperar Contraseña
+   input(type="submit", name="submit", value="Ingresar")
+ div#mensajee
+  if(mensaje)   
+   div#mensaje
+    img(src="/images/error.png", alt="error") 
+    p#mpa #{mensaje}
+    img#exit(src="/images/exit.png", alt="salir") 
+block script
+ script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+ script
+  $(function(){
+      $(".showpassword").each(function(index,input) {
+          var $input = $(input);
+          $("<p class='opt'/>").append(
+              $("<input type='checkbox' class='showpasswordcheckbox' id='showPassword' />").click(function() {
+                  var change = $(this).is(":checked") ? "text" : "password";
+                  var rep = $("<input placeholder='Su Contraseña' type='" + change + "' />")
+                      .attr("id", $input.attr("id"))
+                      .attr("name", $input.attr("name"))
+                      .attr('class', $input.attr('class'))
+                      .val($input.val())
+                      .insertBefore($input);
+                  $input.remove();
+                  $input = rep;
+               })
+          ).append($("<label for='showPassword'/>").text("Show password")).insertAfter($input.parent());
+      });
+      $('#showPassword').click(function(){
+        
+      });
+    });
+ if(mensaje)
+  script
+   $(window).load(function(){
+    $("#mensaje").fadeIn(1500);
+    //$("#mensaje").fadeOut(1500);
+   });
+    $("#exit").click(function(){
+     
+    $("#mensaje").fadeOut(1000);
+   });   

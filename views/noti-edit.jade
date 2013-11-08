@@ -1,0 +1,43 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+block content
+ include headera
+ section#contenedor
+  section#contenido
+   each noti in notis
+    section#edit-not
+     h2 Editor de Noticias
+     form(method="post",action="/notmo/" + noti.id, enctype='multipart/form-data')
+      article#noti-image
+       img(src='/images/content/new/#{noti.imagen}')
+       label(for="texto") Imagen Noticia&nbsp;  
+       input(type="file", name='photo')
+       if(mensaje)   
+        div#mensaje
+         img(src="/images/error.png", alt="error") 
+         p#mpa #{mensaje}
+         img#exit(src="/images/exit.png", alt="salir")
+      article#noti-conte
+       input(name="notid",type="text",value="#{noti.titulo}")
+       textarea(name="notia")#area1 #{noti.contenido}
+       input(type='submit',title="Guardar",value="Guardar") 
+block script
+ script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+ script(src="/javascripts/jquery.cokidoo-textarea.js")
+ script
+  
+ script
+  $().ready(function(){
+    $("#area1").autoResize();
+  });
+ if(mensaje)
+  script
+   $(window).load(function(){
+    $("#mensaje").fadeIn(1500);
+    //$("#mensaje").fadeOut(1500);
+   });
+    $("#exit").click(function(){
+     
+    $("#mensaje").fadeOut(1000);
+   });    

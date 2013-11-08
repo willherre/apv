@@ -1,0 +1,22 @@
+block slide
+  
+        each noti in notis
+             div#new
+              -var contenido = noti.contenido
+              img(src='/images/content/new/#{noti.imagen}')
+              div#new-cont
+               h4  #{noti.titulo}
+               p #{noti.conteni}&nbsp;...
+              form(method="post",action="/noti/" + noti.id)
+               input(name='_method',value='DELETE',type='hidden')
+               -var estado =  noti.estado
+               -var id= '#{noti._id}'
+               - if (estado=="A")
+                  input(type='checkbox', checked , onClick="activar('#{noti.id}');")
+               - else 
+                  input(type='checkbox', onClick="activar('#{noti.id}');") 
+               button.btn.pull-right.delete-response(type='submit',title="Eliminar")
+                img(src='/images/del.png')
+              form(method="get",action="/notid/" + noti.id)
+               button(type='submit',title="Editar")
+                img(src='/images/editt.png')  

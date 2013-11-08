@@ -1,0 +1,42 @@
+header
+    a#logo(href="admin") 
+     img(src="/images/logot.png", alt="Logo Tailor")
+    nav
+     ul#cbp-tm-menu.cbp-tm-menu
+      li
+       a(href="/admin") Inicio
+      -if(users.rol=="adm")
+       li
+        a(href="#") Usuarios
+        ul.cbp-tm-submenu
+         li
+          a.icon-users(href="/useradd") Crear Usuario
+         li
+          a.icon-search(href="#") Buscar Usuario 
+      li
+       a(href="#") Politicas
+      li
+       a(href="#") Galeria
+      li
+       a(href="#") Reserva
+      if(users)
+       li
+         a(href="#{users.nombre} ", target="_blank") #{users.nombre}  
+         ul.cbp-tm-submenu
+          li 
+           a.icon-user(href="#", target="_blank") Ver mi perfil
+          li
+           a.icon-cancel(href="/closea") Cerrar sesion
+script(src='/javascripts/modernizr.custom.js')          
+script
+ var menu = new cbpTooltipMenu( document.getElementById( 'cbp-tm-menu' ) );
+script(src='/javascripts/cbpTooltipMenu.min.js')              
+
+    
+
+
+
+
+
+
+     

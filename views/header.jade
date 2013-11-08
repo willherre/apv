@@ -1,0 +1,42 @@
+section#contenedor
+ header
+  h1
+   a(href='/') 
+    each logo in logos
+     -if (logo.estado =="A")
+       img.transicion(src='/images/content/logo/#{logo.nomlogo}')
+  div.main.clearfix
+   nav#menu.nav					
+    ul
+     li
+       a(href='/')
+        span.icon
+         i.icon-home(aria-hidden="true") 
+        span Inicio
+     li
+       a(href='#')
+        span.icon
+         i.icon-bookmark-empty(aria-hidden="true") 
+        span Políticas 
+     li
+       a(href='#')
+        span.icon
+         i.icon-picture(aria-hidden="true") 
+        span Galería
+     li
+       a(href='#')
+        span.icon
+         i.icon-calendar(aria-hidden="true") 
+        span Reserva
+     li
+       a(href='contacto')
+        span.icon
+         i.icon-mail-alt(aria-hidden="true") 
+        span Contacto
+     li
+       a(href='login')
+        span.icon
+         i.icon-lock(aria-hidden="true") 
+        span Login
+ script(src='/javascripts/menus.js') 
+ block contenido			

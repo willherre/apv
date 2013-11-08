@@ -1,0 +1,26 @@
+extends layout
+block link
+ link(rel='stylesheet', href='/vendor/bootstrap.min.css')
+block content
+ #login-container
+   br
+   form( method="post")#login-form.well.span4
+     h1 Hello!
+     p.subheading Please Login To Your Account
+     label Username 
+     input.span4.required(type="text", name="user", id='user-tf', required)
+     label Rol
+     select(name='rol_slc')
+
+     label Password
+     input.span4.required(type="password", name="pass", id='pass-tf', required)
+     button(type="submit")#btn-login.btn.btn-primary
+      i.icon-lock.icon-white
+      | Sign in
+     label#remember-me.checkbox Remember Me
+      input(type="checkbox", checked='checked')
+     div.clear-fix
+     hr
+     div.btm-links
+      a(href='#')#forgot-password Forgot Your Password?
+      a(href='/signup')#create-account Create An Accounts

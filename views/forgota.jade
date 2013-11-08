@@ -1,0 +1,28 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+ link(rel='stylesheet', href='/stylesheets/logina.css')
+block content
+ h2 Bienvenido de Nuevo 
+ form.form-2(method="post",action="/enviara")
+  h1
+   span.log-in Olvidaste tu Contraseña&nbsp; 
+  p
+   label#email(for='login')
+    
+    |Email
+    input#login(type='email', name='correo',required,autofocus)
+    
+  p.float 
+   input(type="submit", name="submit", value="Enviar")
+ if(mensaje)   
+  div#mensaje
+   img(src="images/error.png", alt="error") 
+   p#mpa #{mensaje} 
+block script
+ script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+ if(mensaje)
+  script
+   $(window).load(function(){
+    $("#mensaje").fadeIn(1000);
+   });         

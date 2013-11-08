@@ -1,0 +1,26 @@
+extends layout
+block link
+ link(rel='stylesheet', href='/stylesheets/contacto.css')
+block content
+ include header
+  block contenido
+   section#carta
+    div#wrap
+     h1 Envianos tu Mensaje
+     div#form_wrap
+      form(method="post",action="/enviar")
+            p.parrafo  Hola !!!
+            label(for="name") Nombre: 
+            input#name(type="text", name="name_txt", value="",autofocus,required) 
+            label(for="email") Correo: 
+            input#email(type="email", name="email_txt", value="",required)
+            label(for="asunto") Asunto: 
+            input#name(type="text", name="asunto_txt", value="",required )  
+            label( for="message") Tu Mensaje : 
+            textarea#message(name="message_txa",value="Your Message",required) 
+            
+            input(type="submit" ,name ="submit", value="Click Aqui Para Enviar!!!")
+    img#imagencita(src="images/try.png")    
+block script
+ <!--[if IE]><script>$(document).ready(function() {$("#form_wrap").addClass('hide');})</script><![endif]-->
+ include footer
