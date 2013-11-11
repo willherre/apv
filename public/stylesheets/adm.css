@@ -502,6 +502,7 @@ label
 }
 #registro button
 {
+    border-radius: 12px; 
     display: block;
     font-size: 0.7em;
     padding: 8px 15px;
