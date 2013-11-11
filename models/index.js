@@ -43,7 +43,7 @@ var UserSchema = new mongoose.Schema({
 	papellido :String,
 	sapellido: String,
 	genero: String,
-	fecha: String,
+	fecha: Date,
 	correo: String,
 	direccion: String,
 	telefono: String,

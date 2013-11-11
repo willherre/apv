@@ -1,6 +1,7 @@
 extends layout1
 block link
  link(rel='stylesheet', href='/stylesheets/adm.css')
+ link(rel="stylesheet", type="text/css", href="/stylesheets/button.css")
 block content
  include headera
  article#registro
@@ -8,25 +9,29 @@ block content
    h2 Nuevo Usuario 
    form(method="post",action="/usuario/add")
     div
-     label(for="identifica") Identificacion:
+     label(for="identifica") Identificacion 
+      sup *
      input#identifica(type="text",name="identifica",required)
     div
-     label(for="codigo") Codigo:
+     label(for="codigo") Codigo
+      sup *
      input#codigo(type="text",name="codigo",required)	
     div
-     label(for="pnombre") Primer Nombre:
-     input#pnombre(type="text",name="pnombre")  
+     label(for="pnombre") Primer Nombre
+      sup *
+     input#pnombre(type="text",name="pnombre",required)  
     div
-     label(for="snombre") Segundo Nombre:
-     input#snombre(type="text",name="snombre",required)
+     label(for="snombre") Segundo Nombre
+     input#snombre(type="text",name="snombre")
     div
-     label(for="papellido") Primer Apellido:
+     label(for="papellido") Primer Apellido
+      sup *
      input#papellido(type="text",name="papellido",required)
     div
-     label(for="sapellido") Segundo Apellido:
-     input#sapellido(type="text",name="sapellido",required)
+     label(for="sapellido") Segundo Apellido
+     input#sapellido(type="text",name="sapellido")
     div 
-     label(for="genero") Genero:
+     label(for="genero") Genero
      select#genero(name="genero")
       option M
       option F 
@@ -45,33 +50,38 @@ block content
        -for(var x=1933;x<2014;x++)
         option #{x}   
     div
-     label(for="correo") Correo:
+     label(for="correo") Correo
+      sup *
      input#correo(type="email",name="correo",required)
 
     div
-     label(for="direccion") Direccion:
-     input#direccion(type="text",name="direccion",required)
+     label(for="direccion") Direccion
+     input#direccion(type="text",name="direccion")
     div
-     label(for="telefono") Telefono:
-     input#telefono(type="text",name="telefono",required)
+     label(for="telefono") Telefono
+     input#telefono(type="text",name="telefono")
     div
-     label(for="imagen") Foto de Perfil:
+     label(for="imagen") Foto de Perfil
      input#imagen(type="file",name="photo")
     div
-     label(for="rol") Rol:
-     select#rol
+     label(for="rol") Rol
+      sup *
+     select#rol(required)
       option Selecciona el Rol
       option adm
       option monti
       option user
     div
-     label(for="password") Contraseña:
+     label(for="password") Contraseña
+      sup *
      input#password(type="password",name="password",required)
     div
-     label(for="password1") Repita Su Contraseña:
+     label(for="password1") Repita Su Contraseña
+      sup *
      input#password1(type="password",name="password1",required)  
-    input(type="submit",value="Guardar")
+    <button class="btn btn-2 btn-2h">Guardar</button>
 block script
+ script(type="text/javascript", src="/javascripts/classie.js")
  script
   $(window).load(function(){
    $("#formnu").fadeIn(2000);

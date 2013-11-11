@@ -150,7 +150,7 @@ app.post("/noti/add",function(req,res) {
 //Guardar Usuario
 app.post("/usuario/add",function(req,res) {
   new User({
-        identifi: req.body.identifi,
+        identifi: req.body.identifica,
         codigo:  req.body.codigo,
         nombre : req.body.nombre,
         apellido: req.body.apellido,
@@ -164,6 +164,7 @@ app.post("/usuario/add",function(req,res) {
     });
     res.redirect('/usuario');
 });
+
 //Eliminar Logo
 app.del('/logo/:id', function(req,res){
   var logonom = req.body.logonom;

@@ -500,9 +500,11 @@ label
     border: none;
     width: 30%;
 }
-#registro input[type="submit"]
+#registro button
 {
     display: block;
+    font-size: 0.7em;
+    padding: 8px 15px;
     margin: 1em auto;
     
 }
