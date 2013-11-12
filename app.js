@@ -149,22 +149,41 @@ app.post("/noti/add",function(req,res) {
 });
 //Guardar Usuario
 app.post("/usuario/add",function(req,res) {
+
+  if (req.body.password==req.body.password1) 
+  {
+    var mensaje="jajaja";
+    res.redirect('/usuario/'+ mensaje);
+  } 
+  else
+  {
+    var fechaa =req.body.dia +"-"+req.body.mes+"-"+req.body.año;
   new User({
-        identifi: req.body.identifica,
-        codigo:  req.body.codigo,
-        nombre : req.body.nombre,
-        apellido: req.body.apellido,
-        direccion: req.body.direccion,
-        telefono: req.body.telefono,
-        rol: req.body.rol,
-        password:req.body.password1, 
+        identifi:req.body.identifica,
+        codigo:req.body.codigo,
+        pnombre:req.body.pnombre,
+        snombre:req.body.snombre,
+        papellido:req.body.papellido,
+        sapellido:req.body.sapellido,
+        genero:req.body.genero,
+        fecha:fecha,
+        correo:req.body.correo,
+        direccion:req.body.direccion,
+        telefono:req.body.telefono,
+        rol:req.body.rol,
+        password:req.body.password,        
     }).save(function(err,docs){
         if(err) res.send("error");
         res.send(docs);
     });
-    res.redirect('/usuario');
+    res.redirect('/usuario/'+"nada");
+  };
 });
+app.get("/usuario/:act",function(req,res) {
 
+         res.render("mensaje",{mensaje:"asd"});
+        
+});
 //Eliminar Logo
 app.del('/logo/:id', function(req,res){
   var logonom = req.body.logonom;

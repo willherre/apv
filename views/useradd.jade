@@ -6,8 +6,10 @@ block content
  include headera
  article#registro
   fieldset#formnu
-   h2 Nuevo Usuario 
-   form(method="post",action="/usuario/add")
+   h2 Nuevo Usuario
+   div#mensajero 
+    include mensaje
+   form(method="post")
     div
      label(for="identifica") Identificacion 
       sup *
@@ -41,11 +43,11 @@ block content
       option Día
       -for(var x=1;x<32;x++)
         option #{x}
-     select
+     select#mes(name="mes")
       option Mes
       -for(var x=1;x<13;x++)
         option #{x}
-     select
+     select#año(name="año")
       option Año
        -for(var x=1933;x<2014;x++)
         option #{x}   
@@ -66,7 +68,7 @@ block content
     div
      label(for="rol") Rol
       sup *
-     select#rol(required)
+     select#rol(name="rol",required)
       option 
       option adm
       option monti
@@ -79,9 +81,10 @@ block content
      label(for="password1") Repita Su Contraseña
       sup *
      input#password1(type="password",name="password1",required)  
-    <button class="btn btn-2 btn-2h">Guardar</button>
+  button.btn.btn-2.btn-2h(onClick="agregar(2);") Guardar
 block script
  script(type="text/javascript", src="/javascripts/classie.js")
+
  script
   $(window).load(function(){
    $("#formnu").fadeIn(2000);
