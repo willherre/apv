@@ -166,21 +166,15 @@ app.post("/usuarioadd",function(req,res) {
           identifi:req.body.iden,
           codigo:req.body.codigo,
           pnombre:req.body.nom,
-         
           snombre:req.body.snombre,
           papellido:req.body.papellido,
           sapellido:req.body.sapellido,
           genero:req.body.genero,
-          
-         
-
           correo:req.body.correo,
-           /* 
           direccion:req.body.direccion,
           telefono:req.body.telefono,
           rol:req.body.rol,
           password:req.body.password,
-          */
       }).save(function(err,docs){
           if(err) res.send("error");
           res.send(docs);
@@ -193,7 +187,14 @@ app.post("/usuarioadd",function(req,res) {
 app.get("/usuario/:act",function(req,res) {
 
   var men= req.params.act;
-  res.render("mensaje",{mensaje:men});
+  if (men=="Se creó el usuario correctamente") 
+    {
+      res.render("mensaje",{mensaje:men,logo:"good"});
+    }else{
+      res.render("mensaje",{mensaje:men,logo:"bad"});
+    }
+
+  
         
 });
 //Eliminar Logo

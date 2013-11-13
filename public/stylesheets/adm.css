@@ -401,7 +401,28 @@ label
     text-align: left;
     font-size: 1.4em;
 }
+#mimen
+{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: auto;
 
+    
+}
+#mimen img, #mimen p
+{
+    color: #4E8E79;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+}
+#mimen img
+{
+    margin-left: 5px;
+    width: 5%;
+}
 #mensaje
 {
      background: #FFF;
@@ -418,6 +439,7 @@ label
 }
 #mensaje img
 {
+    margin-left: 5px;
     width: 10%;
 }
 #mensaje img,#mpa
@@ -481,7 +503,16 @@ label
     border-radius: 5px;
     padding: 0.25em;
     padding-left: 25px;
-    width: 60%;  
+    -ms-transition: all 0.5s ease-out ;
+    /* mozilla*/
+    -moz-transition: all 0.5s ease-out ;
+    /* opera*/
+    -o-transition: all 0.5s ease-out ;
+    /* safari-chrome*/
+    -webkit-transition: all 0.5s ease-out ;
+    transition: all 0.5s ease-out ;
+    width: 60%; 
+
 }
 #registro input[type="text"]:focus,#registro input[type="email"]:focus,#registro input[type="password"]:focus
 {
@@ -489,6 +520,14 @@ label
     -moz-box-shadow: inset 0 0 2px 1px #6D8AA3;
     -webkit-box-shadow: inset 0 0 2px 1px #6D8AA3;
     box-shadow: inset 0 0 2px 1px #6D8AA3;
+    -ms-transition: all 0.5s ease-out ;
+    /* mozilla*/
+    -moz-transition: all 0.5s ease-out ;
+    /* opera*/
+    -o-transition: all 0.5s ease-out ;
+    /* safari-chrome*/
+    -webkit-transition: all 0.5s ease-out ;
+    transition: all 0.5s ease-out ; 
 }
 #registro input[type="file"]
 {
