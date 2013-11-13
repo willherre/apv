@@ -144,44 +144,56 @@ app.post("/noti/add",function(req,res) {
       });
      });   
     });
-  };
+  }; 
  }); 
 });
 //Guardar Usuario
-app.post("/usuario/add",function(req,res) {
+app.post("/usuarioadd",function(req,res) {
 
-  if (req.body.password==req.body.password1) 
+ 
+  if (req.body.password!=req.body.password1) 
   {
-    var mensaje="jajaja";
+    var mensaje="La contraseña no coincide  ";
     res.redirect('/usuario/'+ mensaje);
+  }
+
+  if (req.body.nada==1) {
+    var mensaje="Debe llenar todos campos obligatorios  ";
+    res.redirect('/usuario/'+ mensaje);
+  }else {
+    
+    new User({
+          identifi:req.body.iden,
+          codigo:req.body.codigo,
+          pnombre:req.body.nom,
+         
+          snombre:req.body.snombre,
+          papellido:req.body.papellido,
+          sapellido:req.body.sapellido,
+          genero:req.body.genero,
+          
+         
+
+          correo:req.body.correo,
+           /* 
+          direccion:req.body.direccion,
+          telefono:req.body.telefono,
+          rol:req.body.rol,
+          password:req.body.password,
+          */
+      }).save(function(err,docs){
+          if(err) res.send("error");
+          res.send(docs);
+      });
+      res.redirect('/usuario/'+"Se creó el usuario correctamente");
   } 
-  else
-  {
-    var fechaa =req.body.dia +"-"+req.body.mes+"-"+req.body.año;
-  new User({
-        identifi:req.body.identifica,
-        codigo:req.body.codigo,
-        pnombre:req.body.pnombre,
-        snombre:req.body.snombre,
-        papellido:req.body.papellido,
-        sapellido:req.body.sapellido,
-        genero:req.body.genero,
-        fecha:fecha,
-        correo:req.body.correo,
-        direccion:req.body.direccion,
-        telefono:req.body.telefono,
-        rol:req.body.rol,
-        password:req.body.password,        
-    }).save(function(err,docs){
-        if(err) res.send("error");
-        res.send(docs);
-    });
-    res.redirect('/usuario/'+"nada");
-  };
 });
+
+//ajax guardar usuario
 app.get("/usuario/:act",function(req,res) {
 
-         res.render("mensaje",{mensaje:"asd"});
+  var men= req.params.act;
+  res.render("mensaje",{mensaje:men});
         
 });
 //Eliminar Logo
