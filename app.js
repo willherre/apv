@@ -150,23 +150,19 @@ app.post("/noti/add",function(req,res) {
 //Guardar Usuario
 app.post("/usuarioadd",function(req,res) {
   User.findOne({identifi:req.body.iden}).exec(function (err,docs) {
-   User.findOne({correo:req.body.correo}).exec(function (err,docss) {
-   if (docs!=" "){
+   
+   if (!err ){
       if (docs.identifi==req.body.iden) {
      var mensaje="El número de identificación ya esta registrado.";
      res.redirect('/usuario/'+ mensaje); 
    }
-   }else if (docss!=" "){
-      if (docss.correo==req.body.correo) {
-     var mensaje="La dirección de correo ya esta registrado.";
-     res.redirect('/usuario/'+ mensaje);
-   }
+   
  }else if(req.body.password!=req.body.password1) 
-   {
+   { 
     var mensaje="La contraseña no coincide.";
     res.redirect('/usuario/'+ mensaje);
     }else if (req.body.nada==1) {
-    var mensaje="Debe llenar todos campos obligatorios."+docs.iden;
+    var mensaje="Debe llenar todos campos obligatorios.";
     res.redirect('/usuario/'+ mensaje);
   }else {
     
@@ -190,7 +186,7 @@ app.post("/usuarioadd",function(req,res) {
       res.redirect('/usuario/'+"Se creó el usuario correctamente.");
   }
   });
- });
+
 });
 
 //ajax guardar usuario

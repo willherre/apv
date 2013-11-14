@@ -46,7 +46,8 @@ function agregar() {
 		var nada= 1;
 		campos+="-Repetir Password\n"
 	}
-	alert(campos);
+	if (nada=1) {alert(campos);};
+	
 	
 	var data = new FormData();
 	data.append('iden',iden);
