@@ -150,15 +150,15 @@ app.post("/noti/add",function(req,res) {
 //Guardar Usuario
 app.post("/usuarioadd",function(req,res) {
 
- 
+
   if (req.body.password!=req.body.password1) 
   {
-    var mensaje="La contraseña no coincide  ";
+    var mensaje="La contraseña no coincide.";
     res.redirect('/usuario/'+ mensaje);
   }
 
   if (req.body.nada==1) {
-    var mensaje="Debe llenar todos campos obligatorios  ";
+    var mensaje="Debe llenar todos campos obligatorios.";
     res.redirect('/usuario/'+ mensaje);
   }else {
     
@@ -179,7 +179,7 @@ app.post("/usuarioadd",function(req,res) {
           if(err) res.send("error");
           res.send(docs);
       });
-      res.redirect('/usuario/'+"Se creó el usuario correctamente");
+      res.redirect('/usuario/'+"Se creó el usuario correctamente.");
   } 
 });
 

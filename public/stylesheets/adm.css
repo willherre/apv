@@ -412,7 +412,6 @@ label
 }
 #mimen img, #mimen p
 {
-    color: #4E8E79;
     font-weight: bold;
     display: inline-block;
     vertical-align: middle;
@@ -422,6 +421,14 @@ label
 {
     margin-left: 5px;
     width: 5%;
+}
+#men
+{
+    color: #269A26;
+}
+#men1
+{
+    color: #9E2828;
 }
 #mensaje
 {

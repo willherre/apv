@@ -1,5 +1,5 @@
 exports.createSchema = function(mongoose){
-mongoose.connect("mongodb://localhost/apv");
+mongoose.connect("mongodb://appfog:745@paulo.mongohq.com:10064/pruebaapv_wicho716");
 //Documento Logo encargado del almacenamiento de los logos 	
 var LogoSchema = new mongoose.Schema({
 	nomlogo: String,

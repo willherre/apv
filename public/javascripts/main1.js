@@ -7,18 +7,46 @@ function agregar() {
 	var papellido = document.getElementById("papellido").value;
 	var sapellido = document.getElementById("sapellido").value;
 	var genero = document.getElementById("genero").value;
-	
+	var campos ="Te faltan llenar los siguientes espacios:\n" ;
 	var correo = document.getElementById("correo").value;
 	var direccion = document.getElementById("direccion").value;
 	var telefono = document.getElementById("telefono").value;
 	var rol = document.getElementById("rol").value;
 	var password = document.getElementById("password").value;
 	var password1 = document.getElementById("password1").value;
-	
-	if (iden=="" || codigo=="" || nom=="" || papellido=="" ||correo=="" || rol=="" ||password=="" || password1=="" ) 
-	{
-		var nada= 1;	
-	};
+	if (iden=="") {
+		var nada= 1;
+		campos+="-Identificacion\n"
+	}
+	if (codigo=="" ) {
+		var nada= 1;
+		campos+="-Codigo\n"
+	}
+	if (nom=="") {
+		var nada= 1;
+		campos+="-Primer Nombre\n"
+	}
+	if (papellido=="") {
+		var nada= 1;
+		campos+="-Primer Apellido\n"
+	}
+	if (correo=="") {
+		var nada= 1;
+		campos+="-Correo\n"
+	}
+	if (rol=="") {
+		var nada= 1;
+		campos+="-Rol\n"
+	}
+	if (password=="") {
+		var nada= 1;
+		campos+="-Password\n"
+	}
+	if (password1=="") {
+		var nada= 1;
+		campos+="-Repetir Password\n"
+	}
+	alert(campos);
 	
 	var data = new FormData();
 	data.append('iden',iden);
