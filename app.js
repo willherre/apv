@@ -429,18 +429,25 @@ app.get("/logo", function(req,res){
        });
      });           
   } else{
-       Logo.find({}).sort({_id:"descending"}).skip(0).limit(10).exec(function (err, resources) {
+       res.render('logina',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'A.P.V | Administrador de Contenidos'});
+        };
+});
+app.get("/searhusua",function(req,res) {
+  if (req.session.loggedIn!=null) {
+    User.find({}).sort({_id:"descending"}).skip(0).limit(10).exec(function (err, resources) {
     User.findOne({identifi: req.session.loggedIn  }).exec(function (err, projects) {
-        res.render("logo", {
+        res.render("userque", {
             logos: resources,
             users: projects,
-            title:"A.P.V | Administrador de logos",
-            descrip:req.body.logod,
-            mensaje:"El nombre de la imagen ya existe."
+            title:"A.P.V | Buscar Usuario"
         });
        });
-     }); 
-    };
+     });           
+  } else{
+       res.render('logina',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'A.P.V | Administrador de Contenidos'});
+  
+  };
+
 });
 //Listar Slides del banner
 app.get("/banner", function(req,res){

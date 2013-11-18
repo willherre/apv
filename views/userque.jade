@@ -1,0 +1,24 @@
+extends layout1
+block link
+ link(rel='stylesheet', href='/stylesheets/adm.css')
+ link(rel="stylesheet", type="text/css", href="/stylesheets/button.css")
+block content
+ include headera
+ section#suser
+  fieldset
+   legend &nbsp;Buscar&nbsp;
+   label Nombre
+   input#nombre(type="radio",name="criterio",value="nombre")
+   label Apellido
+   input#apellido(type="radio",name="criterio",value="apellido")
+   label Rol
+   input#rol(type="radio",name="criterio",value="rol") 
+   label Codigo
+   input#codigo(type="radio",name="criterio",value="codigo")
+   label(for="buscar") Buscar
+   input#buscar(type="text",name="buscar")
+  div#listaruser
+   include tablauser
+
+block script
+ script(type="text/javascript", src="/javascripts/classie.js")
